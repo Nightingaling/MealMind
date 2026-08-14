@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ArrowLeft,
@@ -250,7 +251,7 @@ export function Onboarding() {
   }
 
   return (
-    <main className="app-shell">
+    <main className="app-shell mx-auto min-h-dvh w-full max-w-[420px] overflow-x-hidden shadow-2xl">
       <aside className="visual-panel">
         <div className="visual-image">
           <Image
@@ -290,11 +291,11 @@ export function Onboarding() {
               <div className="progress-track" aria-label={`Onboarding progress: step ${step + 1} of ${steps.length}`}>
                 <span style={{ width: `${((step + 1) / steps.length) * 100}%` }} />
               </div>
-              <nav className="step-labels" aria-label="Onboarding steps">
+              <div className="step-labels" aria-label="Onboarding steps">
                 {steps.map((item, index) => (
                   <span key={item.label} className={index <= step ? "active" : ""}>{item.label}</span>
                 ))}
-              </nav>
+              </div>
             </header>
 
             <form onSubmit={(event) => event.preventDefault()} className="step-form">
@@ -427,7 +428,7 @@ export function Onboarding() {
                   </fieldset>
                   <div className="privacy-note">
                     <Leaf size={18} />
-                    <p>Your profile stays in this browser. MealMind does not send these details anywhere.</p>
+                    <p>Your profile is saved in this browser and sent securely only when you request meal ideas.</p>
                   </div>
                 </div>
               )}
@@ -472,7 +473,10 @@ function Completion({ profile, onReset }: { profile: SavedProfile; onReset: () =
           <p>{[...profile.allergies, profile.excludedFoods].filter(Boolean).join(", ")}</p>
         </div>
       )}
-      <button type="button" className="button-secondary reset-button" onClick={onReset}><RotateCcw size={17} /> Edit my answers</button>
+      <div className="completion-actions">
+        <Link href="/dashboard" className="button-primary">Back to dashboard <ArrowRight size={17} /></Link>
+        <button type="button" className="button-secondary reset-button" onClick={onReset}><RotateCcw size={17} /> Edit my answers</button>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,11 @@ export type MealIngredient = {
   amount: string;
 };
 
+export type MealInstruction = {
+  text: string;
+  timerSeconds: number;
+};
+
 export type MealOption = {
   title: string;
   description: string;
@@ -14,7 +19,7 @@ export type MealOption = {
     fatGrams: number;
   };
   ingredients: MealIngredient[];
-  instructions: string[];
+  instructions: MealInstruction[];
   goalAlignment: string;
   allergenNotes: string;
 };
