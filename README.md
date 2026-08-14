@@ -1,5 +1,8 @@
 # MealMind
 
+<img width="2752" height="1536" alt="Project Image 2" src="https://github.com/user-attachments/assets/26ab3c6c-d306-4b16-9115-7a95b8b2cab3" />
+
+
 MealMind is a mobile-first meal-planning web application built with Next.js, React, TypeScript, and Tailwind CSS. It guides users through a personal nutrition onboarding flow, saves their meal profile in the browser, accepts fridge or pantry photos, and uses OpenAI vision-capable responses to generate two practical meal options with nutrition estimates and step-by-step cooking timers.
 
 ## Table of contents
